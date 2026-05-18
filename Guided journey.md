@@ -1,3 +1,4 @@
+
 # [Project / Report / Dataset Name] – Technical Documentation
 
 > **How to use this template:** Replace every section in square brackets `[ ]` with content specific to your project. Remove any sections that are not applicable, and add additional sections as needed.
@@ -139,7 +140,7 @@ For each table, document the following:
 
 ### 5.3 Entity Relationship Diagram (ERD)
 
-[Insert or link to an ERD showing how the tables relate to one another.]
+<img width="453" height="608" alt="Screenshot 2026-05-18 at 15 44 30" src="https://github.com/user-attachments/assets/bbd77c90-06df-496a-b6d2-d6837e28d4af" />
 
 ---
 
@@ -273,29 +274,6 @@ ORDER BY 1, 2;
 ---
 
 *Document Owner: [Name / Team] | Last Reviewed: [YYYY-MM-DD] | Next Review Due: [YYYY-MM-DD]*
-
-
-# [Project / Report / Dataset Name] – Technical Documentation
-
-> **How to use this template:** Replace every section in square brackets `[ ]` with content specific to your project. Remove any sections that are not applicable, and add additional sections as needed.
-
----
-
-## Table of Contents
-
-1. [Project Overview](#1-project-overview)
-2. [Stakeholders](#2-stakeholders)
-3. [Benefits of the Project](#3-benefits-of-the-project)
-4. [Architecture & Technical Design](#4-architecture--technical-design)
-5. [Data Sources & Tables](#5-data-sources--tables)
-6. [Data Quality Issues & Known Limitations](#6-data-quality-issues--known-limitations)
-7. [Usage Guide](#7-usage-guide)
-8. [Security & Access Control](#8-security--access-control)
-9. [Testing & Validation](#9-testing--validation)
-10. [Deployment & Maintenance](#10-deployment--maintenance)
-11. [Change Log / Version History](#11-change-log--version-history)
-12. [Glossary](#12-glossary)
-13. [References & Related Documents](#13-references--related-documents)
 
 ---
 
