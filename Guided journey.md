@@ -1,5 +1,5 @@
 
-# [Project / Report / Dataset Name] – Technical Documentation
+# [Guided Journeys] – Technical Documentation
 
 > **How to use this template:** Replace every section in square brackets `[ ]` with content specific to your project. Remove any sections that are not applicable, and add additional sections as needed.
 
