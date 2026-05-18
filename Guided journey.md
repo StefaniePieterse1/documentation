@@ -49,8 +49,6 @@ to inform anything. This means we have no real way of knowing how effective the 
 
 ### 1.3 Scope
 
-[Clearly define what is **in scope** and what is **out of scope** for this project.]
-
 **In Scope:**
 - Creating an analytics framework to understand the implemented guided journeys  
 - Improve future implementations 
@@ -66,12 +64,9 @@ to inform anything. This means we have no real way of knowing how effective the 
 
 | Role                  | Name / Team              | Responsibility                                          | Contact                    |
 |-----------------------|--------------------------|---------------------------------------------------------|----------------------------|
-| **Stakeholder **     | [Dave Woodhouse]            | Final decision-making authority                       | [email or channel]       |
-| **Data Analyst/ Scientist **      | [Stefanie Pieterse / Owen Allenden's team]            | Consumes and interprets data / builds reports           | [email or channel]         |
+| **Stakeholder**     | [Dave Woodhouse]            | Final decision-making authority                       | [email or channel]       |
+| **Data Analyst/ Scientist**      | [Stefanie Pieterse / Owen Allenden's team]            | Consumes and interprets data / builds reports           | [email or channel]         |
 | **End Users**         | [Internal use / agent use]     | Day-to-day users of the output                          | [email or channel]         |
-### 2.2 RACI Summary
-
----
 
 ## 3. Benefits of the Project
 
@@ -91,7 +86,7 @@ to inform anything. This means we have no real way of knowing how effective the 
 
 ### 3.3 Strategic Alignment
 
-[Describe how this project supports wider organisational or strategic goals, e.g., data democratisation, cost reduction, regulatory compliance.]
+Will allow for reduction in repeat contacts, inefficiencies in calls, AHT etc ->  aligns with CST (customer service transformation) to reduce contacts
 
 ---
 
@@ -101,29 +96,6 @@ to inform anything. This means we have no real way of knowing how effective the 
 
 [Insert or link to an architecture diagram (e.g., draw.io, Lucidchart, Miro).  
 Describe the main components and how they interact.]
-
-```
-[Source Systems] --> [Ingestion Layer] --> [Staging / Raw Zone]
-                                               |
-                                        [Transformation Layer]
-                                               |
-                                        [Curated / Presentation Layer]
-                                               |
-                                     [Reporting / Consumption Layer]
-```
-
-### 4.2 Technology Stack
-
-| Layer                   | Technology / Tool                     | Notes                                 |
-|-------------------------|---------------------------------------|---------------------------------------|
-| Source Systems          | [e.g., Salesforce, SAP, CSV files]    |                                       |
-| Ingestion               | [e.g., Azure Data Factory, Fivetran]  |                                       |
-| Storage / Data Platform | [e.g., Azure Data Lake, Snowflake]    |                                       |
-| Transformation          | [e.g., dbt, PySpark, SQL]             |                                       |
-| Orchestration           | [e.g., Apache Airflow, Azure ADF]     |                                       |
-| Reporting / BI          | [e.g., Power BI, Tableau, Looker]     |                                       |
-| Version Control         | [e.g., GitHub, Azure DevOps]          |                                       |
-| CI/CD                   | [e.g., GitHub Actions, Azure Pipelines]|                                      |
 
 ### 4.3 Data Flow
 
@@ -135,23 +107,8 @@ Include frequency, method of transfer, and any transformations applied at each s
 3. **Transformation:** [Data is cleaned, enriched, and modelled using [tool/logic].]
 4. **Publishing:** [Curated data is published to [destination] for consumption.]
 
-### 4.4 Scheduling & Frequency
-
-| Pipeline / Job         | Schedule (Cron / Natural Language) | SLA / Expected Runtime |
-|------------------------|------------------------------------|------------------------|
-| [Job 1]                | [e.g., Daily at 06:00 SAST]        | [e.g., < 30 minutes]   |
-| [Job 2]                | [e.g., Hourly]                     | [e.g., < 5 minutes]    |
-
----
 
 ## 5. Data Sources & Tables
-
-### 5.1 Source Systems
-
-| Source Name         | System Type          | Owner / Team           | Refresh Frequency | Access Method          |
-|---------------------|----------------------|------------------------|-------------------|------------------------|
-| [Source 1]          | [e.g., CRM / ERP]    | [Team name]            | [Daily / Real-time] | [API / SFTP / JDBC]  |
-| [Source 2]          | [e.g., Flat file]    | [Team name]            | [Monthly]         | [SharePoint / S3]      |
 
 ### 5.2 Data Tables / Objects
 
@@ -159,30 +116,18 @@ For each table, document the following:
 
 ---
 
-#### Table: `[schema].[table_name]`
+#### Table: `[ods_p_salesforce_energy.sf_DiagnosticReporting__]`
 
 | Property           | Details                                              |
 |--------------------|------------------------------------------------------|
-| **Description**    | [What this table contains]                           |
-| **Source**         | [Where the data originates]                          |
-| **Layer**          | [Raw / Staging / Curated / Presentation]             |
-| **Row Grain**      | [What one row represents, e.g., one order line item] |
-| **Refresh Type**   | [Full load / Incremental / Snapshot]                 |
-| **Refresh Schedule**| [e.g., Daily at 07:00]                              |
-| **Approx. Row Count**| [e.g., ~5 million rows]                            |
-| **Retention Period**| [e.g., 3 years rolling]                             |
-| **Data Owner**     | [Team or individual]                                 |
+| **Description**    | [Guided journey information]                           |
+| **Source**         | [salesforce calls]                          |
+| **Row Grain**      | [a page visited / triggered in the journey ] |
 
 **Column Definitions:**
 
-| Column Name         | Data Type    | Nullable | Primary Key | Description                                         | Example Value        |
-|---------------------|:------------:|:--------:|:-----------:|-----------------------------------------------------|----------------------|
-| `id`                | `INT`        | No       | Yes         | Unique identifier for each record                   | `12345`              |
-| `created_date`      | `DATE`       | No       | No          | Date the record was created in the source system    | `2024-01-15`         |
-| `customer_id`       | `VARCHAR(50)`| No       | No          | Foreign key linking to the customer dimension table | `CUST-0099`          |
-| `amount`            | `DECIMAL(18,2)`| Yes    | No          | Transaction amount in local currency                | `1500.00`            |
-| `status`            | `VARCHAR(20)`| Yes      | No          | Current status of the record                        | `Active`             |
-| [Add more columns]  |              |          |             |                                                     |                      |
+<img width="827" height="558" alt="Screenshot 2026-05-18 at 14 32 14" src="https://github.com/user-attachments/assets/98d9c03d-8fb8-405f-8e2a-2edf107b7352" />
+
 
 **Business Rules & Transformations applied to this table:**
 - [e.g., `amount` is converted from USD to ZAR using the exchange rate on `exchange_rate_table`.]
@@ -279,14 +224,6 @@ ORDER BY 1, 2;
 
 ## 8. Security & Access Control
 
-### 8.1 Data Classification
-
-| Data Element           | Classification              | Justification                                 |
-|------------------------|-----------------------------|-----------------------------------------------|
-| Customer PII           | Confidential                | Contains personally identifiable information  |
-| Transaction Amounts    | Internal                    | Business-sensitive financial data             |
-| Product Catalogue      | Public                      | No sensitive data                             |
-
 ### 8.2 Access Control
 
 | Role / AD Group        | Access Level                | Justification                                 |
@@ -295,74 +232,7 @@ ORDER BY 1, 2;
 | `[AD Group / Role 2]`  | Read/Write (staging layer)  | Data engineers managing pipelines             |
 | `[AD Group / Role 3]`  | Admin                       | Data platform administrators                  |
 
-### 8.3 Compliance & Regulatory Considerations
-
-[List any regulatory or policy requirements that apply to this data, e.g., POPIA, GDPR, PCI-DSS, HIPAA.]
-
-- [e.g., This dataset contains personal information as defined by POPIA. All access must be logged and audited.]
-- [e.g., PII columns are masked for non-production environments.]
-
 ---
-
-## 9. Testing & Validation
-
-### 9.1 Testing Approach
-
-[Describe the approach to testing, including unit tests, integration tests, and data validation checks.]
-
-### 9.2 Test Cases
-
-| Test ID | Test Description                                      | Input                        | Expected Output                   | Pass/Fail Criteria                      |
-|---------|-------------------------------------------------------|------------------------------|-----------------------------------|-----------------------------------------|
-| TC-001  | [e.g., Row count matches source]                      | [Source row count]           | [Target row count = source count] | Difference <= 0.1%                      |
-| TC-002  | [e.g., No NULL primary keys in curated table]         | `[table].[id]`               | NULL count = 0                    | NULL count = 0                          |
-| TC-003  | [e.g., Totals reconcile with finance sign-off figures]| [Finance reference totals]   | Within agreed tolerance           | Variance <= 1%                          |
-
-### 9.3 UAT Sign-off
-
-| Stakeholder            | Role                   | Date              | Sign-off Status     |
-|------------------------|------------------------|-------------------|---------------------|
-| [Name]                 | Business Owner         | [YYYY-MM-DD]      | [Approved / Pending]|
-| [Name]                 | Technical Lead         | [YYYY-MM-DD]      | [Approved / Pending]|
-
----
-
-## 10. Deployment & Maintenance
-
-### 10.1 Environments
-
-| Environment   | Purpose                            | URL / Connection String           | Who Can Deploy       |
-|---------------|------------------------------------|-----------------------------------|----------------------|
-| Development   | Active development and unit testing| [dev connection details]          | Developers           |
-| UAT / Staging | User acceptance testing            | [uat connection details]          | Developers + QA      |
-| Production    | Live environment                   | [prod connection details]         | Release Manager      |
-
-### 10.2 Deployment Steps
-
-1. [Step 1: e.g., Merge feature branch to `main` after PR review.]
-2. [Step 2: e.g., CI/CD pipeline runs automated tests.]
-3. [Step 3: e.g., Deploy to UAT and conduct smoke tests.]
-4. [Step 4: e.g., Obtain UAT sign-off from business owner.]
-5. [Step 5: e.g., Deploy to Production during approved change window.]
-
-### 10.3 Monitoring & Alerting
-
-| Monitor                          | Tool                   | Alert Condition                              | Notified Team / Person  |
-|----------------------------------|------------------------|----------------------------------------------|-------------------------|
-| Pipeline failure                 | [e.g., Airflow / ADF]  | Any task failure                             | [Data Engineering team] |
-| Row count anomaly                | [e.g., dbt tests]      | Row count drops > 20% vs. 7-day average      | [Data Engineering team] |
-| SLA breach                       | [e.g., PagerDuty]      | Report not refreshed by 08:00                | [Data Owner]            |
-
-### 10.4 Incident & Support
-
-| Severity  | Definition                                      | Response Time  | Escalation Path                         |
-|-----------|-------------------------------------------------|----------------|-----------------------------------------|
-| P1 – Critical | Data loss or incorrect data in production   | 1 hour         | On-call engineer → Tech Lead → CTO      |
-| P2 – High     | Pipeline delayed beyond SLA                 | 4 hours        | Data Engineer → Tech Lead               |
-| P3 – Medium   | Non-critical data quality warning           | Next business day | Data Engineer                        |
-
----
-
 ## 11. Change Log / Version History
 
 | Version | Date       | Author         | Description of Change                                              |
